@@ -30,7 +30,7 @@ export default function Form(props) {
   }
 
 
-  const [text, setText] = useState('Enter text here for conversion');
+  const [text, setText] = useState('');
   // here the the input will be assibned to text 
   // the updated value of text wil be given to setText 
   // text = ' wrong way to update the value of the variable '
@@ -43,8 +43,16 @@ export default function Form(props) {
         <h1>{props.text}</h1>
         <textarea className="form-control" value={text} onChange={handelOnChange} id="myBox" rows="10"></textarea>
       </div>
-      <button type="button" onClick={handleUpClick} className="btn btn-primary">Convert to UPPERCASE</button>
-      <button type="button" onClick={handleDnClick} className="btn btn-primary">Convert to lowercase</button>
+      <button type="button" onClick={handleUpClick} className="btn btn-primary mx-2">Convert to UPPERCASE</button>
+      <button type="button" onClick={handleDnClick} className="btn btn-primary mx-2">Convert to lowercase</button>
+      <div className="container my-3">
+        <h2>Your text summary</h2>
+        {/* here we are calculating no. of words in the text given also calculating time to be taken to read the entire text  */}
+        <p>{text.split(" ").length}</p>
+        <p>{0.08 * text.split(" ").length}</p>
+        <h2>Preview</h2>
+        <p>{text}</p>
+      </div>
     </>
   );
 }
